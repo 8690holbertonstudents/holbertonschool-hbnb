@@ -24,20 +24,23 @@ class User(BaseModel):
         self.reviews = []
 
 
-    def add_place(self, name, description):
+    def add_place(self, place):
         """
-        Method that add place to a list of places of a specific user
+        Method that adds a place to the user's list of places
 
         Args:
-            name: the name of new place
-            description: the description of a new place
-        Returns:
-            a new place of a specific user
-        """
+            place: An instance of the Place class
 
-        place = Place(name=name, description=description, user_id=self.id)
-        self.places.append(place)
-        return place
+        Returns:
+            The place added to the user's list of places
+        """
+        if isinstance(place, Place):
+            place.host_id = self.id  # Assurez-vous que l'ID de l'hôte est défini
+            self.places.append(place)
+            return place
+        else:
+            raise TypeError("Expected a Place instance")
+
 
     def add_review(self, place_id, text):
         """
