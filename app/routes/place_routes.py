@@ -48,3 +48,22 @@ class PlaceResource(Resource):
         Delete place from id
         """
         pass
+
+
+@place_ns.route('/<string:id>/reviews')
+class PlaceReview(Resource):
+    """
+    Define PlaceReview class inherit from Resource.
+    """
+
+    def get(self, id):
+        """
+        Retrieve review list from a specific place
+        """
+        pass
+
+    def post(self, id):
+        """
+        Add a new review for a specific place
+        """
+        pass

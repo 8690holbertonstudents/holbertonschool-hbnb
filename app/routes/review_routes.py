@@ -6,10 +6,30 @@ from flask_restx import Resource, Namespace
 review_ns = Namespace('reviews', description='review operations')
 
 
-@review_ns.route('/')
+
+
+
+
+@review_ns.route('/<string:id>')
 class ReviewResource(Resource):
-    def get(self):
+    """
+    Define ReviewResource class inherit from Resource.
+    """
+
+    def get(self, id):
         """
-        Retrieve reviews list
+        Retrieve review from id
         """
-        return ({'message': 'reviews !'})
+        pass
+
+    def put(self, id):
+        """
+        Update review from id
+        """
+        pass
+
+    def delete(self, id):
+        """
+        Delete review from id
+        """
+        pass
