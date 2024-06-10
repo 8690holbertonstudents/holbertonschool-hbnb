@@ -12,7 +12,7 @@ class Country:
 
     def __init__(self, name, code):
         """
-        Initializes a Country instance
+        Initializes a Country instanceNo parameters
 
         Args:
             name (str): The name of the country.

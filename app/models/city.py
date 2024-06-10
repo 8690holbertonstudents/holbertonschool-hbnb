@@ -14,7 +14,7 @@ class City(BaseModel):
         The constructor of the class City
         """
         super().__init__()
-        self.country_id = country
+        self.country_id = country_id
         self.name = name
         self.places = []
 
