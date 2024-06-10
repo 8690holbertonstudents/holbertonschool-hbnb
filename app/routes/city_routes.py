@@ -25,25 +25,25 @@ class CityList(Resource):
         pass
 
 
-@city_ns.route('/<string:id>')
+@city_ns.route('/<string:city_id>')
 class CityResource(Resource):
     """
     Define CityResource class inherit from Resource.
     """
 
-    def get(self, id):
+    def get(self, city_id):
         """
         Retrieve city from id
         """
         pass
 
-    def put(self, id):
+    def put(self, city_id):
         """
         Update city from id
         """
         pass
 
-    def delete(self, id):
+    def delete(self, city_id):
         """
         Delete city from id
         """

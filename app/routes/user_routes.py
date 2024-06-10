@@ -25,38 +25,38 @@ class UserList(Resource):
         pass
 
 
-@user_ns.route('/<string:id>')
+@user_ns.route('/<string:user_id>')
 class UserResource(Resource):
     """
     Define UserResource class inherit from Resource.
     """
 
-    def get(self, id):
+    def get(self, user_id):
         """
         Retrieve user from id
         """
         pass
 
-    def put(self, id):
+    def put(self, user_id):
         """
         Update user from id
         """
         pass
 
-    def delete(self, id):
+    def delete(self, user_id):
         """
         Delete user from id
         """
         pass
 
 
-@user_ns.route('/<string:id>/reviews')
+@user_ns.route('/<string:user_id>/reviews')
 class UserReview(Resource):
     """
     Define UserReview class inherit from Resource.
     """
 
-    def get(self, id):
+    def get(self, user_id):
         """
         Retrieve review list from a specific user
         """

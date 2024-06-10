@@ -25,25 +25,25 @@ class AmenityList(Resource):
         pass
 
 
-@amenity_ns.route('/<string:id>')
+@amenity_ns.route('/<string:amenity_id>')
 class AmenityResource(Resource):
     """
     Define AmenityResource class inherit from Resource.
     """
 
-    def get(self, id):
+    def get(self, amenity_id):
         """
         Retrieve amenity from id
         """
         pass
 
-    def put(self, id):
+    def put(self, amenity_id):
         """
         Update amenity from id
         """
         pass
 
-    def delete(self, id):
+    def delete(self, amenity_id):
         """
         Delete amenity from id
         """

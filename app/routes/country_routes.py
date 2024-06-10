@@ -19,27 +19,27 @@ class CountryList(Resource):
         pass
 
 
-@country_ns.route('/<string:id>')
+@country_ns.route('/<string:country_code>')
 class CountryResource1(Resource):
     """
     Define CountryResource1 class inherit from Resource.
     """
 
-    def get(self, id):
+    def get(self, country_code):
         """
-        Retrieve country from id
+        Retrieve country from country_code
         """
         pass
 
 
-@country_ns.route('/<string:id>/cities')
+@country_ns.route('/<string:country_code>/cities')
 class CountryResource2(Resource):
     """
     Define CountryResource2 class inherit from Resource.
     """
 
-    def get(self, id):
+    def get(self, country_code):
         """
-        Retrieve cities from a country id
+        Retrieve cities from a country_code
         """
         pass
