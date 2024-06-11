@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 """
-from flask import jsonify
+from flask import jsonify, request
 from flask_restx import Resource, Namespace
 from app.persistence.data_manager import DataManager
 
@@ -27,8 +27,11 @@ class AmenityList(Resource):
         """
         Add a new amenity to amenities list
         """
-        amenity = data_manager.save(name, 'amenity')
-        return jsonify(amenity)
+        data = request.get_json()
+        if name not in data:
+            return {'error': 'Missing name field'}, 400
+        #amenity = data_manager.save(name, 'amenity')
+        #return jsonify(amenity)
 
 
 @amenity_ns.route('/<string:amenity_id>')
