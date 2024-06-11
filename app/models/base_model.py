@@ -11,23 +11,24 @@ class BaseModel:
     Defines class BaseModel
     """
 
-    def __init__(self, id=None, created_at=None, updated_at=None):
+    def __init__(self, id, created_at, updated_at):
         """
         The constructor of the class BaseModel
         """
 
-        self.id = id if id else str(uuid4())
-        self.created_at = created_at if created_at else datetime.now()
-        self.updated_at = updated_at if updated_at else datetime.now()
+        self.id = id
+        self.created_at = created_at
+        self.updated_at = updated_at
 
     def save(self):
         """
-        Save the updated_at attribute with the current datetime
+        Save the entity with uuid and datetime
         """
-        self.updated_at = datetime.now()
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
 
     def update(self):
         """
-        Update the updated_at attribute with the current datetime
+        Update the entity with datetime
         """
         self.updated_at = datetime.now()
