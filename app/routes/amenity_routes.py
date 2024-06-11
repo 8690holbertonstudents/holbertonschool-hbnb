@@ -30,8 +30,6 @@ class AmenityList(Resource):
         data = request.get_json()
         if name not in data:
             return {'error': 'Missing name field'}, 400
-        #amenity = data_manager.save(name, 'amenity')
-        #return jsonify(amenity)
 
 
 @amenity_ns.route('/<string:amenity_id>')
