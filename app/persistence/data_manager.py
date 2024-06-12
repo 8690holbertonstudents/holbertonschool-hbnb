@@ -21,18 +21,15 @@ class DataManager(IPersistenceManager):
         """
         Method to save entity to storage
         """
-        #data = []
+
         try:
             with open(self.storage_file, 'r', encoding='utf-8') as file:
                 data = json.load(file)
-                for item in data:
-                    if item['name'] == entity['name']:
-                        return False
-                data.append(entity)
         except Exception:
             return False
+        data.append(entity)
 
-        with open(self.storage_file, 'w', encoding='utf-8') as file:    
+        with open(self.storage_file, 'w', encoding='utf-8') as file:
             json.dump(data, file, indent=4)
             return True
 
