@@ -2,13 +2,13 @@
     {
         "amenity_id": "b88590c1-4c05-43ce-b382-7e5590d438d3",
         "created_at": "2024-06-09T10:27:21.240752",
-        "updated_at": "2024-06-10T13:42:31.184752",
-        "name": "Pool"
+        "name": "Pool",
+        "updated_at": "2024-06-10T13:42:31.184752"
     },
     {
         "amenity_id": "d123f6a1-7d55-4b7d-9a77-3d8fbbb44bdf",
         "created_at": "2024-06-11T08:15:30.123456",
-        "updated_at": "2024-06-11T08:15:30.142456",
-        "name": "WiFi"
+        "name": "WiFi",
+        "updated_at": "2024-06-11T08:15:30.142456"
     }
 ]

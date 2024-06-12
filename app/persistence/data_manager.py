@@ -4,33 +4,44 @@ Python module to manage persistence data
 """
 import json
 import os
-from .ipersistence_manager import IPersistenceManager
+from app.persistence.ipersistence_manager import IPersistenceManager
 
 
 class DataManager(IPersistenceManager):
     """
     Create DataManager class inherit from IPersistenceManager
     """
-    json_dir = 'app/storage/'
 
-    def _get_file_path(self, entity_type):
+    def __init__(self, storage_file):
         """
-        Method to retrieve the good file path for a given entity_type
         """
-        return os.path.join(self.json_dir, f'{entity_type}.json')
+        self.storage_file = storage_file
 
     def save(self, entity):
         """
         Method to save entity to storage
         """
-        pass
+        #data = []
+        try:
+            with open(self.storage_file, 'r', encoding='utf-8') as file:
+                data = json.load(file)
+                for item in data:
+                    if item['name'] == entity['name']:
+                        return False
+                data.append(entity)
+        except Exception:
+            return False
 
-    def get(self, entity_id, entity_type):
+        with open(self.storage_file, 'w', encoding='utf-8') as file:    
+            json.dump(data, file, indent=4)
+            return True
+
+    def get_id(self, entity_id):
         """
         Method to retrieve an entity_type by id
         """
-        full_path = self._get_file_path(entity_type)
-        with open(full_path, 'r') as file:
+
+        with open(self.storage_file, 'r') as file:
             data = json.load(file)
             for item in data:
                 for key in item:
@@ -50,10 +61,9 @@ class DataManager(IPersistenceManager):
         """
         pass
 
-    def get_all(self, entity_type):
+    def get(self):
         """
         Method to get all entities of a given type
         """
-        full_path = self._get_file_path(entity_type)
-        with open(full_path, 'r') as file:
+        with open(self.storage_file, 'r') as file:
             return json.load(file)
