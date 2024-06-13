@@ -5,6 +5,7 @@ Python module to manage persistence data
 import json
 import os
 from app.persistence.ipersistence_manager import IPersistenceManager
+from app.models.base_model import BaseModel
 
 
 class DataManager(IPersistenceManager):
@@ -25,9 +26,9 @@ class DataManager(IPersistenceManager):
         try:
             with open(self.storage_file, 'r', encoding='utf-8') as file:
                 data = json.load(file)
+                data.append(entity)
         except Exception:
             return False
-        data.append(entity)
 
         with open(self.storage_file, 'w', encoding='utf-8') as file:
             json.dump(data, file, indent=4)
@@ -46,17 +47,42 @@ class DataManager(IPersistenceManager):
                         return item
         return None
 
-    def update(self, entity):
+    def update(self, entity_type, entity):
         """
         Method to update an entity in storage
         """
-        pass
 
-    def delete(self, entity_id, entity_type):
+        try:
+            with open(self.storage_file, 'r') as file:
+                data = json.load(file)
+                for item in data:
+                    if item[entity_type] == entity[entity_type]:
+                        data.remove(item)
+                        entity['updated_at'] = BaseModel.update(self)
+                        data.append(entity)
+        except Exception:
+            return False
+
+        with open(self.storage_file, 'w', encoding='utf-8') as file:
+            json.dump(data, file, indent=4)
+            return True
+
+    def delete(self, entity_type, entity):
         """
         Method to delete an entity in storage
         """
-        pass
+        try:
+            with open(self.storage_file, 'r') as file:
+                data = json.load(file)
+                for item in data:
+                    if item[entity_type] == entity[entity_type]:
+                        data.remove(item)
+        except Exception:
+            return False
+
+        with open(self.storage_file, 'w', encoding='utf-8') as file:
+            json.dump(data, file, indent=4)
+            return True
 
     def get(self):
         """

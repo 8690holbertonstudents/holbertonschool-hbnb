@@ -2,7 +2,7 @@
 """
 Defines module user.py
 """
-from models import BaseModel
+from app.models.base_model import BaseModel
 
 
 class User(BaseModel):
@@ -10,19 +10,17 @@ class User(BaseModel):
     Defines class User inherits from the class BaseModel
     """
 
-    def __init__(self, email, user_pwd, first_name='', last_name='', id=None, created_at=None, updated_at=None):
+    def __init__(self, email, first_name, last_name):
         """
         Constructor of class User
         """
 
-        super().__init__(id=id, created_at=created_at, updated_at=updated_at)
+        super().__init__()
         self.email = email
-        self.user_pwd = user_pwd
         self.first_name = first_name
         self.last_name = last_name
         self.places = []
         self.reviews = []
-
 
     def add_place(self, place):
         """
@@ -41,7 +39,6 @@ class User(BaseModel):
         else:
             raise TypeError("Expected a Place instance")
 
-
     def add_review(self, place_id, text):
         """
         Method that add review to a list of reviews of a specific user
@@ -56,4 +53,3 @@ class User(BaseModel):
         review = Review(place_id=place_id, user_id=self.id, text=text)
         self.reviews.append(review)
         return review
-

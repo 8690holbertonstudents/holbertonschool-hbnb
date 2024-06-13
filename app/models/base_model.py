@@ -24,4 +24,5 @@ class BaseModel:
         """
         Update the entity with datetime
         """
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.now().isoformat()
+        return self.updated_at

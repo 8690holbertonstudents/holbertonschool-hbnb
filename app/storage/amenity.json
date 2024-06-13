@@ -1,11 +1,5 @@
 [
     {
-        "amenity_id": "b88590c1-4c05-43ce-b382-7e5590d438d3",
-        "created_at": "2024-06-09T10:27:21.240752",
-        "updated_at": "2024-06-10T13:42:31.184752",
-        "name": "Pool"
-    },
-    {
         "amenity_id": "d123f6a1-7d55-4b7d-9a77-3d8fbbb44bdf",
         "created_at": "2024-06-11T08:15:30.123456",
         "updated_at": "2024-06-11T08:15:30.142456",
@@ -18,9 +12,27 @@
         "amenity_id": "68f010df-9131-4370-a933-6f2e376387cb"
     },
     {
-        "created_at": "2024-06-12T23:14:33.768392",
-        "updated_at": "2024-06-12T23:14:33.768400",
+        "created_at": "2024-06-13T15:22:38.277934",
+        "updated_at": "2024-06-13T15:22:38.277944",
         "name": "Garden",
-        "amenity_id": "b9d79087-4393-4674-b5c5-4df3bb1ced9d"
+        "amenity_id": "e30e5a46-61db-4d6a-b847-9f469ef91cd2"
+    },
+    {
+        "created_at": "2024-06-13T15:27:16.127147",
+        "updated_at": "2024-06-13T15:27:16.127161",
+        "name": "Terrace",
+        "amenity_id": "640a6ef3-03fc-4f4e-ae8b-fe191182d8a7"
+    },
+    {
+        "created_at": "2024-06-13T16:50:53.696697",
+        "updated_at": "2024-06-13T16:50:53.696708",
+        "name": "Balcony",
+        "amenity_id": "dc46bcf0-227e-4c92-986b-7702850112d8"
+    },
+    {
+        "created_at": "2024-06-13T21:02:47.611503",
+        "updated_at": "2024-06-13T21:09:49.231613",
+        "name": "Pool",
+        "amenity_id": "70fd1845-330c-49de-bc2e-0f3a5f501166"
     }
 ]
