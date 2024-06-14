@@ -1,11 +1,5 @@
 [
     {
-        "amenity_id": "d123f6a1-7d55-4b7d-9a77-3d8fbbb44bdf",
-        "created_at": "2024-06-11T08:15:30.123456",
-        "updated_at": "2024-06-11T08:15:30.142456",
-        "name": "WiFi"
-    },
-    {
         "created_at": "2024-06-12T23:12:51.289966",
         "updated_at": "2024-06-12T23:12:51.289972",
         "name": "Jacuzzi",
@@ -34,5 +28,35 @@
         "updated_at": "2024-06-13T21:09:49.231613",
         "name": "Pool",
         "amenity_id": "70fd1845-330c-49de-bc2e-0f3a5f501166"
+    },
+    {
+        "created_at": "2024-06-14T11:00:20.063460",
+        "updated_at": "2024-06-14T11:00:20.063467",
+        "name": 1,
+        "amenity_id": "e5f4e765-a968-4961-a8c2-5a385ec5fa6b"
+    },
+    {
+        "created_at": "2024-06-14T11:35:40.372029",
+        "updated_at": "2024-06-14T11:35:40.372039",
+        "name": "5",
+        "amenity_id": "fe1cbad5-dcf1-4597-940c-a56163aba215"
+    },
+    {
+        "created_at": "2024-06-14T12:04:49.618163",
+        "updated_at": "2024-06-14T12:04:49.618169",
+        "name": "",
+        "amenity_id": "3760b2e8-fe42-4943-89ea-9f516aa7f926"
+    },
+    {
+        "created_at": "2024-06-14T12:22:48.539640",
+        "updated_at": "2024-06-14T12:22:48.539647",
+        "name": "aaa",
+        "amenity_id": "e11af9e3-65ce-4bce-987a-e9546903000f"
+    },
+    {
+        "amenity_id": "d123f6a1-7d55-4b7d-9a77-3d8fbbb44bdf",
+        "created_at": "2024-06-11T08:15:30.123456",
+        "updated_at": "2024-06-14T14:45:51.302126",
+        "name": "WiFi6"
     }
 ]
