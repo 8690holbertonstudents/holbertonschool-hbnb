@@ -4,10 +4,21 @@
 from flask import Blueprint, jsonify, request, abort
 from app.models.user import User
 from app.persistence.data_manager import DataManager
+import re
 
 
 user_bp = Blueprint('users', __name__)
 data_manager = DataManager('app/storage/user.json')
+
+
+def str_email_check(email):
+    """
+    Check email string content (not a real validation).
+    """
+    email_regex = re.compile(
+        r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+    )
+    return re.match(email_regex, email) is not None
 
 
 def common_check(user_data):
@@ -22,6 +33,9 @@ def common_check(user_data):
 
     if 'email' not in user_data or len(user_data['email']) == 0:
         return jsonify({'Error': 'user must have an email'}), 400
+
+    if not str_email_check(user_data['email']):
+        return jsonify({'Error': 'email string is not valid'}), 400
 
     if 'first_name' not in user_data or len(user_data['first_name']) == 0:
         return jsonify({'Error': 'user must have a first_name'}), 400
@@ -134,7 +148,7 @@ def put_id(user_id):
         return err_check
 
     for item in users:
-        if item['email'] == user_data['email']:
+        if item['email'] == user_data['email'] and item['user_id'] != user_id:
             return jsonify({'Error': 'user email already exist'}), 409
 
     user['email'] = user_data['email']
