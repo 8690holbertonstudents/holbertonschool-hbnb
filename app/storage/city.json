@@ -8,14 +8,6 @@
         "city_id": "425b3fe0-f4fb-42da-8bd3-6cf6d0b04391"
     },
     {
-        "created_at": "2024-06-15T18:52:26.159595",
-        "updated_at": "2024-06-15T18:52:26.159615",
-        "country_code": "FR",
-        "name": "Paris",
-        "places": [],
-        "city_id": "3cad995b-7dd2-410f-aa6e-a0a61f85e030"
-    },
-    {
         "created_at": "2024-06-15T19:35:51.548160",
         "updated_at": "2024-06-15T19:35:51.548182",
         "country_code": "FR",
@@ -38,14 +30,6 @@
         "name": "Toulouse",
         "places": [],
         "city_id": "e17be3b3-9f90-4295-814d-07a515db99f1"
-    },
-    {
-        "created_at": "2024-06-15T22:14:45.246202",
-        "updated_at": "2024-06-15T22:14:45.246224",
-        "country_code": "FR",
-        "name": "Laval",
-        "places": [],
-        "city_id": "43d6316c-1cc1-4ca7-ae2e-49ea128804f5"
     },
     {
         "created_at": "2024-06-15T22:15:36.938437",
@@ -86,5 +70,29 @@
         "name": "Thonon",
         "places": [],
         "city_id": "91867c47-4cea-4edc-8f05-b21f59807880"
+    },
+    {
+        "created_at": "2024-06-16T00:37:02.312370",
+        "updated_at": "2024-06-16T00:37:02.312378",
+        "country_code": "GB",
+        "name": "London",
+        "places": [],
+        "city_id": "64034204-38cf-49da-8787-69ce4a5a6e85"
+    },
+    {
+        "created_at": "2024-06-16T00:38:23.588459",
+        "updated_at": "2024-06-16T00:38:23.588470",
+        "country_code": "GB",
+        "name": "Manchester",
+        "places": [],
+        "city_id": "497dfcce-e72a-440b-85d8-719b5166e29d"
+    },
+    {
+        "created_at": "2024-06-15T18:52:26.159595",
+        "updated_at": "2024-06-16T01:08:26.074919",
+        "country_code": "US",
+        "name": "New york",
+        "places": [],
+        "city_id": "3cad995b-7dd2-410f-aa6e-a0a61f85e030"
     }
 ]

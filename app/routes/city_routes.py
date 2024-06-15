@@ -61,6 +61,28 @@ def get_country_code(country_code):
         return jsonify({'Error': str(e)}), 500
 
 
+@ city_bp.route('/countries/<country_code>/cities', methods=['GET'])
+def get_city_country(country_code):
+    """
+    Retrieve cities list by country code with GET
+    """
+    response, status_code = get_cities()
+    if status_code != 200:
+        return response
+
+    cities = response.get_json()
+    country_code = country_code.upper()
+    city_names = []
+    for city in cities:
+        if city['country_code'] == country_code:
+            city_names.append(city['name'])
+
+    if len(city_names) == 0:
+        return jsonify({'Error': 'No cities found for the given country code'}), 404
+
+    return jsonify(city_names), 200
+
+
 def common_check(city_data):
     """
     Common check for POST and PUT
@@ -111,7 +133,7 @@ def check_geolocator(name):
 
 
 @ city_bp.route('/cities', methods=['GET'])
-def get():
+def get_cities():
     """
     Retrieve cities list with GET
     """
@@ -125,9 +147,8 @@ def get():
 
     if request.method == 'GET':
         return jsonify(cities), 200
-
-    if request.method == 'POST' or request.method == 'PUT':
-        return cities
+    else:
+        return cities, 200
 
 
 @ city_bp.route('/cities', methods=['POST'])
@@ -135,7 +156,8 @@ def post():
     """
     Add a new city to cities list with POST
     """
-    cities = get()
+    cities_response = get_cities()
+    cities = cities_response[0]
 
     city_data = get_city_data()
 
@@ -191,7 +213,9 @@ def put_id(city_id):
     """
     Updade city from id with PUT
     """
-    cities = get()
+    cities_response = get_cities()
+    cities = cities_response[0]
+
     city = get_id(city_id)
 
     city_data = get_city_data()
@@ -200,16 +224,25 @@ def put_id(city_id):
     if err_check:
         return err_check
 
-    for item in cities:
-        if item['name'].lower() == city_data['name'].lower():
-            return jsonify({'Error': 'city name already exist'}), 409
-
     name = city_data.get('name')
     name = name[0].upper() + name[1:].lower()
 
-    check_geolocator(name)
+    for item in cities:
+        if item['name'] == name:
+            return jsonify({'Error': 'city name already exist'}), 409
+
+    if check_geolocator(name) is False:
+        return jsonify({'Error': 'City not on earth !'}), 400
+
+    country_details, status_code = get_country_details(
+        city_data.get('country_code'))
+    if status_code != 200:
+        return jsonify(country_details), status_code
+    else:
+        country_code = country_details.get('alpha2')
 
     city['name'] = name
+    city['country_code'] = country_code
     data_manager.update('city_id', city)
     return jsonify({'city updated': city['name']}), 200
 
