@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+python module for amenity routes
 """
 from flask import Blueprint, jsonify, request, abort
 from app.models.amenity import Amenity
@@ -44,7 +45,7 @@ def get_amenity_data():
     return amenity_data
 
 
-@amenity_bp.route('/amenities/', methods=['GET'])
+@amenity_bp.route('/amenities', methods=['GET'])
 def get():
     """
     Retrieve amenities list with GET
@@ -64,7 +65,7 @@ def get():
         return amenities
 
 
-@amenity_bp.route('/amenities/', methods=['POST'])
+@amenity_bp.route('/amenities', methods=['POST'])
 def post():
     """
     Add a new amenity to amenities list with POST
@@ -92,7 +93,7 @@ def post():
     return jsonify({'amenity added': name}), 200
 
 
-@amenity_bp.route('/amenities/<string:amenity_id>/', methods=['GET'])
+@amenity_bp.route('/amenities/<string:amenity_id>', methods=['GET'])
 def get_id(amenity_id):
     """
     Retrieve amenity from id with GET
@@ -108,7 +109,7 @@ def get_id(amenity_id):
         return amenity
 
 
-@amenity_bp.route('/amenities/<string:amenity_id>/', methods=['PUT'])
+@amenity_bp.route('/amenities/<string:amenity_id>', methods=['PUT'])
 def put_id(amenity_id):
     """
     Updade amenity from id with PUT
@@ -131,7 +132,7 @@ def put_id(amenity_id):
     return jsonify({'amenity updated': amenity['name']}), 200
 
 
-@amenity_bp.route('/amenities/<string:amenity_id>/', methods=['DELETE'])
+@amenity_bp.route('/amenities/<string:amenity_id>', methods=['DELETE'])
 def delete_id(amenity_id):
     """
     Delete amenity from id with DELETE

@@ -1,0 +1,90 @@
+[
+    {
+        "created_at": "2024-06-14T15:52:44.456099",
+        "updated_at": "2024-06-14T23:36:43.592553",
+        "country_code": "FR",
+        "name": "Bordeaux",
+        "places": [],
+        "city_id": "425b3fe0-f4fb-42da-8bd3-6cf6d0b04391"
+    },
+    {
+        "created_at": "2024-06-15T18:52:26.159595",
+        "updated_at": "2024-06-15T18:52:26.159615",
+        "country_code": "FR",
+        "name": "Paris",
+        "places": [],
+        "city_id": "3cad995b-7dd2-410f-aa6e-a0a61f85e030"
+    },
+    {
+        "created_at": "2024-06-15T19:35:51.548160",
+        "updated_at": "2024-06-15T19:35:51.548182",
+        "country_code": "FR",
+        "name": "Lyon",
+        "places": [],
+        "city_id": "7fe54829-c997-4d4b-be7c-83413aacac8f"
+    },
+    {
+        "created_at": "2024-06-15T22:11:43.889091",
+        "updated_at": "2024-06-15T22:11:43.889102",
+        "country_code": "FR",
+        "name": "Lille",
+        "places": [],
+        "city_id": "8bc55795-f180-4936-b8a4-3c1612f7c2e5"
+    },
+    {
+        "created_at": "2024-06-15T22:13:38.557691",
+        "updated_at": "2024-06-15T22:13:38.557700",
+        "country_code": "FR",
+        "name": "Toulouse",
+        "places": [],
+        "city_id": "e17be3b3-9f90-4295-814d-07a515db99f1"
+    },
+    {
+        "created_at": "2024-06-15T22:14:45.246202",
+        "updated_at": "2024-06-15T22:14:45.246224",
+        "country_code": "FR",
+        "name": "Laval",
+        "places": [],
+        "city_id": "43d6316c-1cc1-4ca7-ae2e-49ea128804f5"
+    },
+    {
+        "created_at": "2024-06-15T22:15:36.938437",
+        "updated_at": "2024-06-15T22:15:36.938459",
+        "country_code": "FR",
+        "name": "Rennes",
+        "places": [],
+        "city_id": "012ca54b-b710-47b1-bf59-fc4e4fcfa36b"
+    },
+    {
+        "created_at": "2024-06-15T22:16:42.749059",
+        "updated_at": "2024-06-15T22:16:42.749069",
+        "country_code": "FR",
+        "name": "Rodez",
+        "places": [],
+        "city_id": "4be2d99f-b432-440d-acc0-9d1f8ae582a6"
+    },
+    {
+        "created_at": "2024-06-15T22:19:43.398781",
+        "updated_at": "2024-06-15T22:19:43.398797",
+        "country_code": "FR",
+        "name": "Dijon",
+        "places": [],
+        "city_id": "af0bb71f-ea82-49f1-b18b-4e442eb7e8b1"
+    },
+    {
+        "created_at": "2024-06-15T22:22:24.471583",
+        "updated_at": "2024-06-15T22:22:24.471596",
+        "country_code": "FR",
+        "name": "Frejus",
+        "places": [],
+        "city_id": "bbbc5f1b-c89f-4d0d-9c98-ed3d5fa1f11c"
+    },
+    {
+        "created_at": "2024-06-15T22:58:40.136928",
+        "updated_at": "2024-06-15T22:58:40.136937",
+        "country_code": "FR",
+        "name": "Thonon",
+        "places": [],
+        "city_id": "91867c47-4cea-4edc-8f05-b21f59807880"
+    }
+]

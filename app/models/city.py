@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 """
-from models import BaseModel
+from app.models.base_model import BaseModel
 
 
 class City(BaseModel):
@@ -9,12 +9,12 @@ class City(BaseModel):
     Defines class City with various attributes
     """
 
-    def __init__(self, country_id, name):
+    def __init__(self, country_code, name):
         """
         The constructor of the class City
         """
         super().__init__()
-        self.country_id = country_id
+        self.country_code = country_code
         self.name = name
         self.places = []
 
@@ -30,4 +30,3 @@ class City(BaseModel):
         """
 
         self.places.append(place)
-

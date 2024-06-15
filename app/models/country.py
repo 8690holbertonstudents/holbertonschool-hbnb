@@ -2,7 +2,6 @@
 """
 Defines module country.py
 """
-import .models from BaseModel
 
 
 class Country:
@@ -10,28 +9,17 @@ class Country:
     Defines class Country with various attributes
     """
 
-    def __init__(self, name, code):
+    def __init__(self, name, country_code):
         """
-        Initializes a Country instanceNo parameters
-
-        Args:
-            name (str): The name of the country.
-            code (str): The code of the country
+        Initializes the Country class
         """
 
-        super().__init__()
         self.name = name
-        self.code = code
+        self.code = country_code
         self.cities = []
 
     def add_city(self, city):
         """
         Adds a City to the country's list of cities.
-
-        Args:
-            city (City): The city to add to the country.
-
-        Returns:
-            None
         """
         self.cities.append(city)

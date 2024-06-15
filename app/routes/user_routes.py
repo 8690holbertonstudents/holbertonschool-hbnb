@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+python module for user routes
 """
 from flask import Blueprint, jsonify, request, abort
 from app.models.user import User
@@ -66,7 +67,7 @@ def get_user_data():
     return user_data
 
 
-@user_bp.route('/users/', methods=['GET'])
+@user_bp.route('/users', methods=['GET'])
 def get():
     """
     Retrieve users list with GET
@@ -86,7 +87,7 @@ def get():
         return users
 
 
-@user_bp.route('/users/', methods=['POST'])
+@user_bp.route('/users', methods=['POST'])
 def post():
     """
     Add a new user to users list with POST
@@ -117,7 +118,7 @@ def post():
     return jsonify({'user added': email}), 200
 
 
-@user_bp.route('/users/<string:user_id>/', methods=['GET'])
+@user_bp.route('/users/<string:user_id>', methods=['GET'])
 def get_id(user_id):
     """
     Retrieve user from id with GET
@@ -133,7 +134,7 @@ def get_id(user_id):
         return user
 
 
-@user_bp.route('/users/<string:user_id>/', methods=['PUT'])
+@user_bp.route('/users/<string:user_id>', methods=['PUT'])
 def put_id(user_id):
     """
     Updade user from id with PUT
@@ -158,7 +159,7 @@ def put_id(user_id):
     return jsonify({'user updated': user['email']}), 200
 
 
-@user_bp.route('/users/<string:user_id>/', methods=['DELETE'])
+@user_bp.route('/users/<string:user_id>', methods=['DELETE'])
 def delete_id(user_id):
     """
     Delete user from id with DELETE
