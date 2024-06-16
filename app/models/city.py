@@ -2,6 +2,7 @@
 """
 """
 from app.models.base_model import BaseModel
+from flask import jsonify
 
 
 class City(BaseModel):
@@ -17,6 +18,22 @@ class City(BaseModel):
         self.country_code = country_code
         self.name = name
         self.places = []
+
+    @staticmethod
+    def data_check(city_data):
+        """
+        Common check for POST and PUT
+        """
+        if 'name' not in city_data:
+            return jsonify({'Error': 'city must have a name'}), 400
+
+        if not isinstance(city_data['name'], str):
+            return jsonify({'Error': 'city name is not a string'}), 400
+
+        if len(city_data['name']) == 0:
+            return jsonify({'Error': 'city name cannot be empty'}), 400
+
+        return None
 
     def add_place(self, place):
         """

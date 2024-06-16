@@ -1,69 +1,46 @@
 #!/usr/bin/python3
 """
+python module for places routes
 """
-from flask_restx import Resource, Namespace
+from flask import Blueprint, jsonify, request
+from app.persistence.data_manager import DataManager
 
-place_ns = Namespace('places', description='place operations')
+
+place_bp = Blueprint('places', __name__)
+data_manager = DataManager('app/storage/place.json')
 
 
-@place_ns.route('/')
-class PlaceList(Resource):
+@place_bp.route('/places', methods=['GET'])
+def get_places():
     """
-    Define PlaceList class inherit from Resource.
+    Retrieve places list with GET
     """
+    places = data_manager.get()
 
-    def get(self):
-        """
-        Retrieve places list
-        """
-        pass
+    if places is None:
+        places = []
 
-    def post(self):
-        """
-        Add a new place to places list
-        """
-        pass
+    if places is False:
+        return jsonify({'Error': 'amenities not found'}), 404
+
+    if request.method == 'GET':
+        return jsonify(places), 200
+
+    # if request.method == 'POST' or request.method == 'PUT':
+        # return amenities
 
 
-@place_ns.route('/<string:place_id>')
-class PlaceResource(Resource):
+@place_bp.route('/places/<string:place_id>', methods=['GET'])
+def get_places_id(place_id):
     """
-    Define PlaceResource class inherit from Resource.
+    Retrieve place from id with GET
     """
+    place = data_manager.get_id(place_id)
+    if place is False:
+        return jsonify({'Error': 'amenity not found'}), 404
 
-    def get(self, place_id):
-        """
-        Retrieve place from id
-        """
-        pass
+    if request.method == 'GET':
+        return jsonify(place), 200
 
-    def put(self, place_id):
-        """
-        Update place from id
-        """
-        pass
-
-    def delete(self, place_id):
-        """
-        Delete place from id
-        """
-        pass
-
-
-@place_ns.route('/<string:place_id>/reviews')
-class PlaceReview(Resource):
-    """
-    Define PlaceReview class inherit from Resource.
-    """
-
-    def get(self, place_id):
-        """
-        Retrieve review list from a specific place
-        """
-        pass
-
-    def post(self, place_id):
-        """
-        Add a new review for a specific place
-        """
-        pass
+    # if request.method == 'PUT' or request.method == 'DELETE':
+        # return place

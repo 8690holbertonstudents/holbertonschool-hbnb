@@ -2,156 +2,68 @@
 """
 python module for review routes
 """
-from flask import Blueprint, jsonify, request, abort
-from app.models.review import review
+from flask import Blueprint, jsonify
 from app.persistence.data_manager import DataManager
 
 
 review_bp = Blueprint('reviews', __name__)
-data_manager = DataManager('app/storage/review.json')
+data_manager_review = DataManager('app/storage/review.json')
+data_manager_place = DataManager('app/storage/place.json')
+data_manager_user = DataManager('app/storage/user.json')
 
 
-def common_check(review_data):
+@review_bp.route('/users/<string:user_id>/reviews', methods=['GET'])
+def get_by_user_id(user_id):
     """
-    Common check for POST and PUT
+    Retrieve review from user_id with GET
     """
-    if not review_data:
-        return jsonify({'Error': 'Bad request, no data'}), 400
-
-    if not isinstance(review_data, dict):
-        return jsonify({'Error': 'review is not JSON object'}), 400
-
-    if 'comment' not in review_data:
-        return jsonify({'Error': 'review must have a comment'}), 400
-
-    if 'rating' not in review_data:
-        return jsonify({'Error': 'review must have a rating'}), 400
-
-    if not isinstance(review_data['comment'], str):
-        return jsonify({'Error': 'review comment is not a string'}), 400
-
-    if not isinstance(review_data['rating'], int) and review_data['rating'] not in range(1, 6):
-        return jsonify({'Error': 'rating must be an integer between 1 and 5'}), 400
-
-    if len(review_data['comment']) == 0:
-        return jsonify({'Error': 'review comment cannot be empty'}), 400
-
-    return None
-
-
-def get_review_data():
-    """
-    Get review data from request
-    """
-    try:
-        review_data = request.get_json()
-    except:
-        return jsonify({'Error': 'Bad JSON object'}), 400
-
-    return review_data
-
-
-@review_bp.route('/reviews', methods=['GET'])
-def get():
-    """
-    Retrieve reviews list with GET
-    """
-    reviews = data_manager.get()
-
-    if reviews is None:
-        reviews = []
+    reviews = data_manager_review.get()
+    users = data_manager_user.get()
 
     if reviews is False:
         return jsonify({'Error': 'reviews not found'}), 404
 
-    if request.method == 'GET':
-        return jsonify(reviews), 200
+    if users is False:
+        return jsonify({'Error': 'users not found'}), 404
 
-    if request.method == 'POST' or request.method == 'PUT':
-        return reviews
+    for user in users:
+        if user['user_id'] == user_id:
+            user_reviews = [
+                review for review in reviews if review['user_id'] == user_id]
+            return jsonify(user_reviews), 200
 
 
-@review_bp.route('/reviews', methods=['POST'])
-def post():
+@review_bp.route('/places/<string:place_id>/reviews', methods=['GET'])
+def get_by_place_id(place_id):
     """
-    Add a new review to reviews list with POST
+    Retrieve review from place_id with GET
     """
-    reviews = get()
+    reviews = data_manager_review.get()
+    places = data_manager_place.get()
 
-    review_data = get_review_data()
+    if reviews is False:
+        return jsonify({'Error': 'reviews not found'}), 404
 
-    err_check = common_check(review_data)
-    if err_check:
-        return err_check
+    if places is False:
+        return jsonify({'Error': 'places not found'}), 404
 
-    for item in reviews:
-        if item['comment'] == review_data['comment']:
-            return jsonify({'Error': 'review comment already exist'}), 409
-
-    comment = review_data.get('comment')
-    new_review = review(comment)
-    if not new_review:
-        return jsonify({'Error': 'unable create new review'}), 400
-
-    new_review.__dict__['review_id'] = new_review.__dict__.pop('id')
-    if data_manager.save(new_review.__dict__) is False:
-        return jsonify({'Error': 'bad json file'}), 409
-    return jsonify({'review added': comment}), 200
+    for review in reviews:
+        if review['place_id'] == place_id:
+            place_reviews = [
+                review for review in reviews if review['place_id'] == place_id]
+            return jsonify(place_reviews), 200
 
 
 @review_bp.route('/reviews/<string:review_id>', methods=['GET'])
-def get_id(review_id):
+def get_review_id(review_id):
     """
-    Retrieve review from id with GET
+    Retrieve review from review_id with GET
     """
-    review = data_manager.get_id(review_id)
-    if review is False:
-        return abort(404)
+    reviews = data_manager_review.get()
 
-    if request.method == 'GET':
-        return jsonify(review), 200
+    if reviews is False:
+        return jsonify({'Error': 'reviews not found'}), 404
 
-    if request.method == 'PUT' or request.method == 'DELETE':
-        return review
-
-
-@review_bp.route('/reviews/<string:review_id>', methods=['PUT'])
-def put_id(review_id):
-    """
-    Updade review from id with PUT
-    """
-    reviews = get()
-    review = get_id(review_id)
-
-    review_data = get_review_data()
-
-    err_check = common_check(review_data)
-    if err_check:
-        return err_check
-
-    for item in reviews:
-        if item['comment'] == review_data['comment']:
-            return jsonify({'Error': 'review comment already exist'}), 409
-
-    review['comment'] = review_data['comment']
-    data_manager.update('review_id', review)
-    return jsonify({'review updated': review['comment']}), 200
-
-
-@review_bp.route('/reviews/<string:review_id>', methods=['DELETE'])
-def delete_id(review_id):
-    """
-    Delete review from id with DELETE
-    """
-    review = get_id(review_id)
-
-    data_manager.delete('review_id', review)
-    return jsonify({'review deleted': review['comment']}), 200
-
-
-@review_bp.app_errorhandler(404)
-def not_found(error):
-    """
-    Handle err 404 for undefined routes
-    """
-    return jsonify({'Error': 'Bad url'}), 404
+    for review in reviews:
+        if review['review_id'] == review_id:
+            return jsonify(review), 200

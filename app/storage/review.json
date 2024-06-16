@@ -1,0 +1,30 @@
+[
+    {
+        "review_id": "4fd75a78-08ab-4b25-a684-1b6a9102c86c",
+        "user_id": "59b43fe4-7ea3-424c-9eea-219cef0ba158",
+        "rating": 5,
+        "comment": "A fantastic place to stay, very comfortable and great location!",
+        "created_at": "2024-06-15T12:00:00"
+    },
+    {
+        "review_id": "d5f6b70e-de29-40a2-bbdc-067752064d4d",
+        "user_id": "1f291113-473d-4c3f-bb3c-dd4eea5b32ce",
+        "rating": 4,
+        "comment": "Beautiful apartment, but a bit noisy at night.",
+        "created_at": "2024-06-14T10:30:00"
+    }
+    {
+        "review_id": "b90f2dd6-e333-43eb-80ba-996280204681",
+        "user_id": "8e817338-3808-4aa8-a84b-e894e7584f98",
+        "rating": 4,
+        "comment": "Lovely house with a great garden. Perfect for families.",
+        "created_at": "2024-06-15T14:00:00"
+    },
+    {
+        "review_id": "0bae6a23-320e-455a-8f61-a863f32660ec",
+        "user_id": "59b43fe4-7ea3-424c-9eea-219cef0ba158",
+        "rating": 5,
+        "comment": "Amazing place! Very spacious and well-equipped.",
+        "created_at": "2024-06-14T09:00:00"
+    }
+]

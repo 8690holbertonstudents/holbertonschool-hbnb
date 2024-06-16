@@ -24,14 +24,6 @@
         "city_id": "8bc55795-f180-4936-b8a4-3c1612f7c2e5"
     },
     {
-        "created_at": "2024-06-15T22:13:38.557691",
-        "updated_at": "2024-06-15T22:13:38.557700",
-        "country_code": "FR",
-        "name": "Toulouse",
-        "places": [],
-        "city_id": "e17be3b3-9f90-4295-814d-07a515db99f1"
-    },
-    {
         "created_at": "2024-06-15T22:15:36.938437",
         "updated_at": "2024-06-15T22:15:36.938459",
         "country_code": "FR",
@@ -94,5 +86,29 @@
         "name": "New york",
         "places": [],
         "city_id": "3cad995b-7dd2-410f-aa6e-a0a61f85e030"
+    },
+    {
+        "created_at": "2024-06-16T11:12:51.862599",
+        "updated_at": "2024-06-16T11:12:51.862614",
+        "country_code": "US",
+        "name": "Miami",
+        "places": [],
+        "city_id": "e04c1f89-d4ea-4061-aa62-cc4a70ee40a0"
+    },
+    {
+        "created_at": "2024-06-16T14:14:31.818529",
+        "updated_at": "2024-06-16T14:14:31.818546",
+        "country_code": "US",
+        "name": "Boston",
+        "places": [],
+        "city_id": "2b194b41-f023-4634-933b-fe55eccaa3b5"
+    },
+    {
+        "created_at": "2024-06-16T14:14:57.651024",
+        "updated_at": "2024-06-16T14:16:03.575727",
+        "country_code": "IT",
+        "name": "Rome",
+        "places": [],
+        "city_id": "8f49a619-56b2-4d40-85f0-c691d87c5802"
     }
 ]

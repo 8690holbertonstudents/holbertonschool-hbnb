@@ -2,7 +2,7 @@
 """
 Defines module place.py
 """
-from models import BaseModel, 
+from app.models.base_model import BaseModel
 
 
 class Place(BaseModel):
@@ -10,12 +10,12 @@ class Place(BaseModel):
     Defines class Place inherits of BaseModel class
     """
 
-    def __init__(self, name, description, address, city_id, latitude, longitude, host_id, 
+    def __init__(self, name, description, address, city_id, latitude, longitude, host_id,
                  num_rooms, num_bathrooms, price_per_night, max_guest):
         """
         The constructor that initialise attributes of the class Place
         """
-        super().__init__()  # Appel au constructeur de BaseModel
+        super().__init__()
         self.name = name
         self.description = description
         self.address = address
@@ -32,20 +32,28 @@ class Place(BaseModel):
 
     def add_amenity(self, amenity):
         """
-        Adds an amenity to the place if it's not already present
-
-        Args:
-            amenity: the characteristic that a place has
+        Adds an amenity to the place
         """
         if amenity not in self.amenities:
             self.amenities.append(amenity)
 
+    def remove_amenity(self, amenity):
+        """
+        Removes an amenity from the place
+        """
+        if amenity in self.amenities:
+            self.amenities.remove(amenity)
+
     def add_review(self, review):
         """
         Adds a review to the place
-
-        Args:
-            review: the review of a specfic place
         """
         self.reviews.append(review)
 
+    def remove_review(self, review_id):
+        """
+        Removes a review from the place by review_id
+        """
+        for review in self.reviews:
+            if review['review_id'] != review_id:
+                self.reviews = review
