@@ -7,9 +7,9 @@ from app.persistence.data_manager import DataManager
 
 
 review_bp = Blueprint('reviews', __name__)
-data_manager_review = DataManager('app/storage/review.json')
-data_manager_place = DataManager('app/storage/place.json')
-data_manager_user = DataManager('app/storage/user.json')
+data_manager_review = DataManager('storage/review.json')
+data_manager_place = DataManager('storage/place.json')
+data_manager_user = DataManager('storage/user.json')
 
 
 @review_bp.route('/users/<string:user_id>/reviews', methods=['GET'])

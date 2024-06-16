@@ -7,7 +7,7 @@ from app.persistence.data_manager import DataManager
 
 
 place_bp = Blueprint('places', __name__)
-data_manager = DataManager('app/storage/place.json')
+data_manager = DataManager('storage/place.json')
 
 
 @place_bp.route('/places', methods=['GET'])

@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: HBNB API
+  version: 1.0.0
+paths:
+  /items/{id}:
+    get:
+      summary: Fetch an item by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The item identifier
+      responses:
+        '200':
+          description: A single item
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: Sample item 1
+        '404':
+          description: Item not found

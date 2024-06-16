@@ -12,7 +12,7 @@ from geopy.exc import GeopyError
 
 
 city_bp = Blueprint('cities', __name__)
-data_manager = DataManager('app/storage/city.json')
+data_manager = DataManager('storage/city.json')
 
 
 def check_geolocator(name):
@@ -154,4 +154,3 @@ def delete_id(city_id):
 
     data_manager.delete('city_id', city)
     return jsonify({'city deleted': city['name']}), 200
-

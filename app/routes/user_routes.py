@@ -9,7 +9,7 @@ from app.routes.manager_routes import get_request_data
 
 
 user_bp = Blueprint('users', __name__)
-data_manager = DataManager('app/storage/user.json')
+data_manager = DataManager('storage/user.json')
 
 
 @user_bp.route('/users', methods=['GET'])

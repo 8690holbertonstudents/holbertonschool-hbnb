@@ -8,7 +8,7 @@ import pycountry
 
 
 country_bp = Blueprint('countries', __name__)
-data_manager = DataManager('app/storage/city.json')
+data_manager = DataManager('storage/city.json')
 
 
 @country_bp.route('/countries', methods=['GET'])

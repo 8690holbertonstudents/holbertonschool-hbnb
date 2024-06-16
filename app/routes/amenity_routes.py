@@ -8,7 +8,7 @@ from app.persistence.data_manager import DataManager
 from app.routes.manager_routes import get_request_data
 
 amenity_bp = Blueprint('amenities', __name__)
-data_manager = DataManager('app/storage/amenity.json')
+data_manager = DataManager('storage/amenity.json')
 
 
 @amenity_bp.route('/amenities', methods=['GET'])

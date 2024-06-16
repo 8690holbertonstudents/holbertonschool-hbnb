@@ -1,0 +1,5 @@
+Flask
+requests
+geopy
+pycountry
+flask_swagger_ui
